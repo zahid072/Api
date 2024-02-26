@@ -32,6 +32,25 @@ fetch("https://jsonplaceholder.typicode.com/users")
       content.appendChild(div1);
     }
   });
+fetch("https://jsonplaceholder.typicode.com/photos")
+  .then((response) => response.json())
+  .then((data) => {
+    
+    const content = document.getElementById("photo");
+    for (let photo of data) {
+      let div1 = document.createElement("div");
+      div1.classList.add('container');
+      div1.innerHTML = `
+         <p>photo: ${photo.id}</p>
+         <h1 class="text-4xl font-bold my-7">Name: ${photo.title}</h1>
+         <p>Image-2: <img class="inline rounded "  src=${photo.thumbnailUrl} alt=""></p>
+        
+      `;
+      content.appendChild(div1);
+    }
+  });
+
+  
 
 
 
